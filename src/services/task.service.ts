@@ -1,4 +1,4 @@
-import { Task, TaskDocument } from '../models/task.model';
+import { Task } from '../models/task.model';
 import {
   ITask,
   ICreateTaskDTO,

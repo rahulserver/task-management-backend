@@ -19,6 +19,7 @@ export class TaskController extends BaseController {
     res: Response,
   ): Promise<void> => {
     try {
+      console.log('createTask');
       const userId = req.user?.uid;
       if (!userId) {
         throw new ApiError(401, 'User not authenticated');

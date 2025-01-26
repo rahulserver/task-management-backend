@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDatabase } from './config/database';
 import { errorHandler } from './middlewares/error.middleware';
+import routes from './routes';
 import logger from './config/logger';
 
 dotenv.config();
@@ -15,12 +16,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes will be added here
-// app.use('/api/tasks', taskRoutes);
-// app.use('/api/posts', postRoutes);
+// API Routes
+app.use('/api', routes);
 
 // Error handling
 app.use(errorHandler);
+
+// Health check route
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
 // Start server
 const startServer = async () => {

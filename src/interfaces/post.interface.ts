@@ -16,7 +16,7 @@ export interface IPost extends BaseDocument {
 }
 
 export interface IComment extends BaseDocument {
-  id: string;
+  id?: string;
   content: string;
   likes: string[]; // Array of user IDs who liked the comment
 }

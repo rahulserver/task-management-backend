@@ -1,7 +1,9 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import { IUser } from '../interfaces/user.interface';
 
-export interface UserDocument extends IUser, Document {}
+export interface UserDocument extends IUser, Document {
+  id: string;
+}
 
 const userSchema = new Schema(
   {
